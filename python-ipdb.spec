@@ -14,6 +14,7 @@ Url:		https://github.com/gotcha/ipdb
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch:	noarch
 Requires:	ipython
+BuildRequires:	python
 
 %description
 ipdb provides access to IPython features from within pdb.

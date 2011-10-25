@@ -1,6 +1,6 @@
 %define module	ipdb
 %define name	python-%{module}
-%define version 0.6
+%define version 0.6.1
 %define release %mkrel 1
 
 Summary:	IPython-enhanced pdb
@@ -13,7 +13,7 @@ Group:		Development/Python
 Url:		https://github.com/gotcha/ipdb
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch:	noarch
-Requires:	ipython
+Requires:	ipython >= 0.10
 BuildRequires:	python-setuptools
 
 %description

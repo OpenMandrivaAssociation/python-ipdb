@@ -1,13 +1,18 @@
 %define module	ipdb
 %define name	python-%{module}
-%define version 0.6.1
-%define release %mkrel 1
+%define version 0.7
+%define	rel		1
+%if %mdkversion < 201100
+%define release %mkrel %{rel}
+%else
+%define	release	%{rel}
+%endif
 
-Summary:	IPython-enhanced pdb
+Summary:	IPython-enabled pdb
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
-Source0:	%{module}-%{version}.tar.gz
+Source0:	http://pypi.python.org/packages/source/i/%{module}/%{module}-%{version}.tar.gz
 License:	GPL
 Group:		Development/Python
 Url:		https://github.com/gotcha/ipdb
@@ -17,18 +22,21 @@ Requires:	ipython >= 0.10
 BuildRequires:	python-setuptools
 
 %description
-ipdb provides access to IPython features from within pdb.
+ipdb provides functions for accessing the IPython debugger's enhanced features
+from within a Python program.
 
 %prep
 %setup -q -n %{module}-%{version}
 
 %install
 %__rm -rf %{buildroot}
-PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot} --record=FILE_LIST
+PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot}
 
 %clean
 %__rm -rf %{buildroot}
 
-%files -f FILE_LIST
+%files
 %defattr(-,root,root)
-%doc README.rst HISTORY.txt
+%doc COPYING.txt HISTORY.txt README.rst
+%_bindir/%{module}
+%py_sitedir/%{module}*

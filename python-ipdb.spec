@@ -1,22 +1,17 @@
 %define module	ipdb
-%define name	python-%{module}
-%define version 0.7
 %define	rel		1
 %if %mdkversion < 201100
-%define release %mkrel %{rel}
 %else
-%define	release	%{rel}
 %endif
 
 Summary:	IPython-enabled pdb
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
-Source0:	http://pypi.python.org/packages/source/i/%{module}/%{module}-%{version}.tar.gz
+Name:		python-%{module}
+Version:	0.8
+Release:	1
+Source0:	https://pypi.python.org/packages/source/i/ipdb/ipdb-%{version}.zip
 License:	GPL
 Group:		Development/Python
 Url:		https://github.com/gotcha/ipdb
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch:	noarch
 Requires:	ipython >= 0.10
 BuildRequires:	python-setuptools
@@ -29,17 +24,14 @@ from within a Python program.
 %setup -q -n %{module}-%{version}
 
 %install
-%__rm -rf %{buildroot}
 PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot}
 
 %clean
-%__rm -rf %{buildroot}
 
 %files
-%defattr(-,root,root)
 %doc COPYING.txt HISTORY.txt README.rst
-%_bindir/%{module}
-%py_sitedir/%{module}*
+%{_bindir}/%{module}
+%{py_puresitedir}/%{module}*
 
 
 %changelog
@@ -66,5 +58,6 @@ PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot}
 * Wed Mar 09 2011 Lev Givon <lev@mandriva.org> 0.3-1
 + Revision: 642989
 - import python-ipdb
+
 
 

@@ -7,7 +7,7 @@
 Summary:	IPython-enabled pdb
 Name:		python-%{module}
 Version:	0.8
-Release:	1
+Release:	2
 Source0:	https://pypi.python.org/packages/source/i/ipdb/ipdb-%{version}.zip
 License:	GPL
 Group:		Development/Python

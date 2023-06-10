@@ -2,7 +2,7 @@
 
 Summary:	IPython-enabled pdb
 Name:		python-%{module}
-Version:	0.13.11
+Version:	0.13.13
 Release:	1
 Source0:	https://files.pythonhosted.org/packages/source/i/ipdb/ipdb-%{version}.tar.gz
 License:	GPL

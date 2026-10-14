@@ -3,14 +3,15 @@
 Summary:	IPython-enabled pdb
 Name:		python-%{module}
 Version:	0.13.13
-Release:	3
+Release:	4
 Source0:	https://files.pythonhosted.org/packages/source/i/ipdb/ipdb-%{version}.tar.gz
 License:	GPL
 Group:		Development/Python
 Url:		https://github.com/gotcha/ipdb
 BuildArch:	noarch
 Requires:	ipython >= 0.10
-BuildRequires:	python-setuptools
+BuildRequires:	pkgconfig(python3)
+BuildRequires:	python%{pyver}dist(setuptools)
 
 %description
 ipdb provides functions for accessing the IPython debugger's enhanced features
